@@ -77,8 +77,8 @@ def push():
 
                                                         
 def main():
-        # push()
-        init()
+        push()
+        # init()
 
 if __name__ == '__main__':
         main()
