@@ -80,9 +80,7 @@ def push():
                 print('Some error occured while pushing the code')
         finally:
                 print('Code push from script succeeded')       
-
-
-                                                        
+                                             
 def main():
         push()
         # init()
