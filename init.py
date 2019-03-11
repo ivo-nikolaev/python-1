@@ -15,7 +15,7 @@ def init():
         list(map(lambda a: cloneURL.append(a['clone_url']), data))
         for i in range(len(cloneURL)):
                 foulderNames.append('lesson' + str(i + 1)) 
-                
+
         if os.path.isdir(f'./{foulderNames[0]}'):
                 pull()
         else: 
@@ -53,6 +53,7 @@ def mapTextFiles():
                                                 continue
         newText.close()
         push(newText)
+        # oasdkjf
 
 def clone():
         for i in range(len(cloneURL)):
