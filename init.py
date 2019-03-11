@@ -14,29 +14,30 @@ def init():
                 data = json.loads(data_file.read())
 
         list(map(lambda a: cloneURL.append(a['clone_url']), data))
-        # if os.path.isdir('./lesson1'):
-        #         clone()
-        # else: 
+        for i in range(len(cloneURL)):
+                foulderNames.append('lesson' + str(i + 1)) 
+        # if os.path.isdir(f'./{foulderNames[0]}'):
         #         pull()
+        # else: 
         clone()
 
 # Deletes all files that are different than readme.md
-def deleteExcessFiles(foulder):
+def deleteExcessFiles():
         print('Cleaning extra files')
-        for i in range(len(foulder)):
-                foulderItems = os.listdir(foulder[i])
+        for i in range(len(foulderNames)):
+                foulderItems = os.listdir(foulderNames[i])
                 for j in foulderItems:
                         if os.path.isfile(j) and j != 'README.md' and j != '.git':
-                                os.remove(f'{os.getcwd()}/{foulder[i]}/{j}')
+                                os.remove(f'{os.getcwd()}/{foulderNames[i]}/{j}')
                         elif j != '.git' and j != 'README.md' and j !='.DS_Store':
-                                shutil.rmtree(f'{os.getcwd()}/{foulder[i]}/{j}')  
-        mapTextFiles(foulderNames) 
+                                shutil.rmtree(f'{os.getcwd()}/{foulderNames[i]}/{j}')  
+        mapTextFiles() 
 
-def mapTextFiles(foulders):
+def mapTextFiles():
         print('Writing on your file')
         newText = open("required_reading.md", 'w')
         paragraph = []
-        for i in foulders:
+        for i in foulderNames:
                 with open(f'./{i}/README.md') as f:
                                 for line in f:
                                         if "## Required reading" in line:
@@ -56,12 +57,11 @@ def mapTextFiles(foulders):
 def clone():
         for i in range(len(cloneURL)):
                 print(f'Cloning repositories','.' * i)
-                foulderNames.append('lesson' + str(i + 1)) 
                 Repo.clone_from(cloneURL[i], 'lesson' + str(i + 1))
-        deleteExcessFiles(foulderNames)
+        deleteExcessFiles()
 def pull():
         
-        deleteExcessFiles(foulderNames)
+        deleteExcessFiles()
 
 def push(textFile):
         if textFile:
