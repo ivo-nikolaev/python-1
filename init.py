@@ -72,7 +72,6 @@ def push():
         print('Pushing to git')
         try:
                 repo = Repo('./')
-                repo.git.add(update=True)
                 repo.git.add('--all')
                 repo.index.commit("new text file")
                 origin = repo.remote(name='origin')

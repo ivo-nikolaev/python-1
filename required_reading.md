@@ -3,6 +3,7 @@
 * [Installations](/other_materials/installation.md)
 * [Unix Commands](/other_materials/unix_commands.md)
 * [Exercise: Unix Commands](/exercises/UNIX_commands.md)
+dfsgsofjghsodfghoi
 ## Required reading
 * [3. An Informal Introduction to Python](https://docs.python.org/3.7/tutorial/introduction.html#an-informal-introduction-to-python)
 * [3.1. Using Python as a Calculator](https://docs.python.org/3.7/tutorial/introduction.html#using-python-as-a-calculator)
