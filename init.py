@@ -71,6 +71,7 @@ def pull():
 
 def push():
         print('Pushing to git')
+        #komentar
         try:
                 repo = Repo('./')
                 repo.git.add(update=True)
