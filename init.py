@@ -3,6 +3,7 @@ import os
 import git
 from git import Repo
 import json
+import time
 
 foulderNames = []
 
@@ -52,6 +53,7 @@ def mapTextFiles(foulders):
 
 def push():
         print('Pushing to git')
+        time.sleep(10)
         # repo = git.Repo('./')
         # repo.git.add("required_reading.md")
         # repo.index.commit("new text file")
