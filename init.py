@@ -82,8 +82,8 @@ def push():
                 print('Code push from script succeeded')       
                                              
 def main():
-        push()
-        # init()
+        # push()
+        init()
 
 if __name__ == '__main__':
         main()
