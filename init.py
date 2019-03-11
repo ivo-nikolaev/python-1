@@ -65,7 +65,7 @@ def pull():
                 repo = git.Repo(f'./{foulderNames[i]}')
                 o = repo.remotes.origin
                 o.pull()
-                deleteExcessFiles()
+        deleteExcessFiles()
 
 def push(textFile):
         if textFile:
