@@ -6,18 +6,19 @@ import json
 import time
 
 foulderNames = []
+cloneURL = []
 
 # Get all url's from the json file and clone the repos 
 def init():
         with open('./repos.json', encoding='utf-8') as data_file:
                 data = json.loads(data_file.read())
-        cloneURL = []
+
         list(map(lambda a: cloneURL.append(a['clone_url']), data))
-        for i in range(len(cloneURL)):
-                print(f'Cloning repositories','.' * i)
-                foulderNames.append('lesson' + str(i + 1)) 
-                Repo.clone_from(cloneURL[i], 'lesson' + str(i + 1))
-        deleteExcessFiles(foulderNames)
+        # if os.path.isdir('./lesson1'):
+        #         clone()
+        # else: 
+        #         pull()
+        clone()
 
 # Deletes all files that are different than readme.md
 def deleteExcessFiles(foulder):
@@ -51,6 +52,16 @@ def mapTextFiles(foulders):
                                                 continue
         newText.close()
         push(newText)
+
+def clone():
+        for i in range(len(cloneURL)):
+                print(f'Cloning repositories','.' * i)
+                foulderNames.append('lesson' + str(i + 1)) 
+                Repo.clone_from(cloneURL[i], 'lesson' + str(i + 1))
+        deleteExcessFiles(foulderNames)
+def pull():
+        
+        deleteExcessFiles(foulderNames)
 
 def push(textFile):
         if textFile:
