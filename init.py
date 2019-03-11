@@ -53,7 +53,6 @@ def mapTextFiles():
                                                 continue
         newText.close()
         push()
-        # oasdkjf
 
 def clone():
         for i in range(len(cloneURL)):
@@ -71,7 +70,6 @@ def pull():
 
 def push():
         print('Pushing to git')
-        #komentar
         try:
                 repo = Repo('./')
                 repo.git.add(update=True)
@@ -86,8 +84,8 @@ def push():
 
                                                         
 def main():
-        # push()
-        init()
+        push()
+        # init()
 
 if __name__ == '__main__':
         main()
