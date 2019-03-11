@@ -49,6 +49,7 @@ def mapTextFiles(foulders):
                                         if line == '\n':
                                                 paragraph = []
                                                 continue
+        newText.close()
         push(newText)
 
 def push(textFile):
