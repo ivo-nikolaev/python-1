@@ -52,17 +52,11 @@ def mapTextFiles(foulders):
         push()
 
 def push():
+        with open('required_reading.md') as file:
+                while not file.read(1):
+                        continue
+
         print('Pushing to git')
-        time.sleep(10)
-        # repo = git.Repo('./')
-        # repo.git.add("required_reading.md")
-        # repo.index.commit("new text file")
-        # repo.git.push("origin", "HEAD:refs/for/master")           
-        # # repo = Repo("https://github.com/Sclipper/Python-Mandatory-1.git")
-        # # repo.git.add(update=True)
-        # # repo.index.commit("new text file")
-        # # origin = repo.remote(name='origin')
-        # # origin.push()
         try:
                 repo = Repo('./')
                 repo.git.add(update=True)
