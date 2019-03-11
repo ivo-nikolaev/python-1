@@ -16,10 +16,10 @@ def init():
         list(map(lambda a: cloneURL.append(a['clone_url']), data))
         for i in range(len(cloneURL)):
                 foulderNames.append('lesson' + str(i + 1)) 
-        # if os.path.isdir(f'./{foulderNames[0]}'):
-        #         pull()
-        # else: 
-        clone()
+        if os.path.isdir(f'./{foulderNames[0]}'):
+                pull()
+        else: 
+                clone()
 
 # Deletes all files that are different than readme.md
 def deleteExcessFiles():
@@ -60,8 +60,12 @@ def clone():
                 Repo.clone_from(cloneURL[i], 'lesson' + str(i + 1))
         deleteExcessFiles()
 def pull():
-        
-        deleteExcessFiles()
+        for i in range(len(cloneURL)):
+                print(f'Pulling from repositories','.' * i)
+                repo = git.Repo(f'./{foulderNames[i]}')
+                o = repo.remotes.origin
+                o.pull()
+                deleteExcessFiles()
 
 def push(textFile):
         if textFile:
