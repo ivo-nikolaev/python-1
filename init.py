@@ -49,30 +49,27 @@ def mapTextFiles(foulders):
                                         if line == '\n':
                                                 paragraph = []
                                                 continue
-        push()
+        push(newText)
 
-def push():
-        with open('required_reading.md') as file:
-                while not file.read(1):
-                        continue
-
-        print('Pushing to git')
-        try:
-                repo = Repo('./')
-                repo.git.add(update=True)
-                repo.index.commit("new text file")
-                origin = repo.remote(name='origin')
-                origin.push()
-        except:
-                print('Some error occured while pushing the code')
-        finally:
-                print('Code push from script succeeded')       
+def push(textFile):
+        if textFile:
+                print('Pushing to git')
+                try:
+                        repo = Repo('./')
+                        repo.git.add(update=True)
+                        repo.index.commit("new text file")
+                        origin = repo.remote(name='origin')
+                        origin.push()
+                except:
+                        print('Some error occured while pushing the code')
+                finally:
+                        print('Code push from script succeeded')       
 
 
                                                         
 def main():
-        push()
-        # init()
+        # push()
+        init()
 
 if __name__ == '__main__':
         main()
