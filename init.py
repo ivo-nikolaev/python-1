@@ -3,7 +3,6 @@ import os
 import git
 from git import Repo
 import json
-import time
 
 foulderNames = []
 cloneURL = []
@@ -16,6 +15,7 @@ def init():
         list(map(lambda a: cloneURL.append(a['clone_url']), data))
         for i in range(len(cloneURL)):
                 foulderNames.append('lesson' + str(i + 1)) 
+                
         if os.path.isdir(f'./{foulderNames[0]}'):
                 pull()
         else: 
@@ -59,6 +59,7 @@ def clone():
                 print(f'Cloning repositories','.' * i)
                 Repo.clone_from(cloneURL[i], 'lesson' + str(i + 1))
         deleteExcessFiles()
+
 def pull():
         for i in range(len(cloneURL)):
                 print(f'Pulling from repositories','.' * i)
