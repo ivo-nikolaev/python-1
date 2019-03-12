@@ -50,7 +50,6 @@ def mapTextFiles():
                                                 continue
                                         if paragraph and line != '\n' or paragraph:
                                                 if line != '\n':
-                                                        line = line.strip('*')
                                                         newText.write(line)
                                                         continue
                                         if line == '\n':
@@ -87,7 +86,6 @@ def push():
                 print('Code push from script succeeded')       
                                              
 def main():
-        # push()
         init()
 
 if __name__ == '__main__':
