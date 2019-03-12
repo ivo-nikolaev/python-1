@@ -41,12 +41,13 @@ def mapTextFiles():
                 with open(f'./{i}/README.md') as f:
                                 for line in f:
                                         if "## Required reading" in line:
-                                                paragraph.append(line.strip('*'))
-                                                newText.write(line.strip('*'))
+                                                line = line.strip('*')
+                                                paragraph.append(line)
+                                                newText.write(line)
                                                 continue
                                         if paragraph and line != '\n' or paragraph:
                                                 if line != '\n':
-                                                        newText.write(line.strip('*'))
+                                                        newText.write(line)
                                                         continue
                                         if line == '\n':
                                                 paragraph = []
