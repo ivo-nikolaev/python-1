@@ -3,6 +3,7 @@ import os
 import git
 from git import Repo
 import json
+from pathlib import Path
 
 foulderNames = []
 cloneURL = []
@@ -34,6 +35,9 @@ def deleteExcessFiles():
         mapTextFiles() 
 
 def mapTextFiles():
+        if(os.path.exists("./required_reading.md")):
+                print('Removing old the file')
+                os.remove("required_reading.md")
         print('Writing on your file')
         newText = open("required_reading.md", 'w')
         paragraph = []
